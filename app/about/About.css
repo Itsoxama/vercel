@@ -1,0 +1,89 @@
+.abt{
+    position: absolute;
+    left: 0px;
+    width: 100vw;
+    height: 410px;
+    object-fit: cover;
+    top: 0px;
+    z-index: -1;
+    opacity: 0.3;
+}
+.bld{
+    font-weight: 700;
+}
+
+.history{
+    width: 100%;
+    padding: 20px;
+    border-radius:20px;
+    background-color: #3D69CB;
+}
+.history>button{
+    border: none;
+    font-size: 16px;
+    color: #3D69CB;
+    font-weight: 700;
+    border-radius: 10px;
+    background-color: white;
+    padding-inline: 20px;
+    height: 51px;
+
+}
+.history>h4{
+    font-size: 25px;
+    font-weight: 500;
+color: white;
+}
+.history>p{
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    line-height: 25px;
+color: white;
+}
+.visions{
+    display: flex;
+    flex-wrap: wrap;
+width: 100%;
+justify-content: space-between;
+}
+.vision{
+    width: 45%;
+    padding: 25px;
+    margin-bottom: 30px;
+    border: 1px solid #3D69CB;
+    border-radius: 10px;
+}
+.vision>img{
+    width: 42px;
+    height: 42px;
+}
+.vision>h4{
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #1C1C1C;
+}
+.vision>p{
+    font-size: 16px;
+    font-weight: 400;
+   line-height: 25px;
+    color: #2B2B2B;
+}
+
+/* Extra small devices (phones) */
+@media (max-width: 575px) {
+
+
+.history{
+    box-sizing: border-box;
+}
+
+.vision{
+    width: 90%;
+    
+}
+
+}

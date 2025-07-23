@@ -1,0 +1,19 @@
+
+.privacy-policy {
+ 
+  margin: 0 auto;
+margin-top: -20px;
+  font-size: 0.95rem;
+  width: 100%;
+  line-height: 1.7;
+  color: #333;
+}
+
+.privacy-policy p {
+  margin-bottom: 1.5rem;
+}
+
+.privacy-policy strong {
+  font-weight: 600;
+  color: #000;
+}

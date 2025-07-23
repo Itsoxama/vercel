@@ -1,7 +1,14 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async rewrites() {
+    return [
+      {
+        source: '/api/cfs/:path*',
+        destination: 'https://cfsapi.infibrain.com/:path*', // Proxy
+      },
+    ];
+  },
 };
 
 export default nextConfig;

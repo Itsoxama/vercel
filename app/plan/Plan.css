@@ -1,0 +1,246 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;400;600;800&family=DM+Sans:wght@100;400;500;600;700&display=swap');
+
+.planinfo{
+display: flex;
+width: 100%;
+justify-content: space-between;
+
+
+}
+.planinfo1{
+    width: 48%;
+
+}
+.planinfo2{
+    width: 48%;
+}
+.planinfo2>img{
+    width: 100%;
+
+
+}
+.planinfo1>h4{
+    color: #212121;
+font-size: 64px;
+font-weight: 600;
+font-family: Bricolage Grotesque, sans-serif !important;
+}
+.planinfo1>p{
+    font-size: 16px;
+    color: #2B2B2B;
+    font-weight: 400;
+    margin-top: 30px;
+    line-height: 25px;
+
+}
+.planinfo1>button{
+    color: #fff;
+    margin-top: 25px;
+background-color: #3d69cb;
+border-radius: 5px;
+justify-content: center;
+align-items: center;
+border: none;
+width: 143px;
+height: 51px;
+font-size: 16px;
+font-weight: 700;
+display: flex;
+box-shadow: 0 13px 26px #3d69cb47;
+font-family: DM Sans, sans-serif !important;
+}
+.discover{
+    width: 100%;
+padding: 43px;
+background-color:#3d69cb;
+border-radius: 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.dis-top{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.dis-top>h4{
+    color: white;
+    font-size: 35px;
+    width: 30%;
+    font-weight: 500;
+
+}
+.dis-top>p{
+    color: white;
+    font-size: 16px;
+    width: 50%;
+  
+    line-height: 25px;
+    font-weight: 400;
+
+}
+.dis-item{
+    padding-left: 20px;
+    display: flex;
+
+align-items: center;    width: 45%;
+margin-bottom: 19px;
+    min-height: 42px;
+    border-left: 2px solid #3d69cb;
+}
+.reverse{
+    display: flex;
+    margin-bottom: 50px;
+    flex-direction: row-reverse;
+}
+.dis-card{
+    padding: 30px;
+      transform: translateY(90);
+      justify-content: space-between;
+    width: 95%;
+    flex-wrap: wrap;
+    display: flex;
+    background-color: white;
+     box-shadow: 0px 15px 40px #00000047;
+    border-radius: 20px;
+    
+}
+.plancard>h5{        font-family: "Bricolage Grotesque", sans-serif!important;
+font-size: 40px;
+color: #3d69cb;
+
+font-weight: 600;
+}
+.plancard>h5>span{
+    font-size:16px ;
+    font-weight: 400;
+}
+.plan-bbreak{
+
+    width: 100%;
+    height: 1px;
+    background-color: #c8c8c8;
+    margin-bottom: 20px;
+}
+.plancard>p{
+    color: black;
+    font-weight: 400;
+
+    font-size: 16px;
+    margin-top: 00px;
+    margin-bottom: 20px;
+            font-family: "Bricolage Grotesque", sans-serif!important;
+
+}
+.litem{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+.crc{
+    width: 7px;
+    height: 7px;
+    background-color: #3d69cb;
+    border-radius: 10px;
+    margin-right: 20px;
+
+}
+.plancard>h4{
+    color: black;
+    font-weight: 600;
+
+    font-size: 22px;
+            font-family: "Bricolage Grotesque", sans-serif!important;
+
+}
+.plancard>button{
+    color: #fff;
+background-color: #3d69cb;
+border: none;
+border-radius: 12px;
+justify-content: center;
+align-items: center;
+width: 95%;
+height: 51px;
+min-height: 51px;
+margin-top: 25px;
+padding-inline: 14px;
+font-size: 16px;
+font-weight: 600;
+display: flex;
+font-family: DM Sans, sans-serif !important;
+}
+.litem>p{
+    font-size: 16px;
+    color:black ;
+    font-weight: 400;
+}
+.plancard>h3{
+    color: black;
+    font-weight: 600;
+    margin-top: 20px;
+
+    font-size: 20px;
+            font-family: "Bricolage Grotesque", sans-serif!important;
+
+}
+.plancard{
+    width: 32%;border-radius: 10px;
+    box-sizing: border-box;
+    padding: 22px;
+    border: 1px solid #3d69cb;
+}
+.plan-cards{
+    width: 100%;
+    display: flex;
+    margin-bottom: 50px;
+    justify-content: space-between;
+}
+
+
+
+
+/* Extra small devices (phones) */
+@media (max-width: 750px) {
+    .dis-item{
+        width: 100%;
+    }
+.dis-card{
+    box-sizing: border-box;
+    margin-bottom: 100px;
+}
+.reverse{
+    flex-direction: column-reverse!important;
+}
+    .discover{
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .plancard{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+.plan-cards{
+    flex-direction: column;
+}
+    .planinfo1>h4{
+        font-size: 27px;
+    }
+    .dis-top{
+        flex-direction: column;
+    }
+    .dis-top>h4,.dis-top>p{
+        width: 100%;
+    }
+
+    .planinfo1,.planinfo2{
+        width: 100%;
+    }
+
+.planinfo{
+    flex-direction: column;
+}
+
+}
