@@ -11,20 +11,14 @@ export default function Footer() {
             <h4>Company</h4>
             <a href="/about"> About Us</a>
              <a href="/plan"> Plans</a>
-            <a href="/about"> Meet Our Leadership</a>
-            <a href="/about"> Join Our Team</a>
         </div>
            <div className="col1">
             <h4>Resources</h4>
                <a href="/blog">Our Blog</a>
              <a href="/about"> About Us</a>
-            <a href="/about"> Meet Our Leadership</a>
-            <a href="/about"> Join Our Team</a>
          </div>
            <div className="col1">
             <h4>Community</h4>
-               <a href="/about"> About Us</a>
-             <a href="/about"> About Us</a>
             <a href="/terms-and-conditions"> Terms & Conditions</a>
             <a href="/privacy"> Privacy Policy</a>
          </div>

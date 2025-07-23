@@ -16,14 +16,23 @@ function formatDate(dateString) {
 
   return `${day}/${month}/${year}`;
 }
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
+
 
 // Ex
   useEffect(() => {
     if (!jobid) return;
     async function fetchJob() {
       try {
+         const token = getCookie('token'); // <--- Get token from cookies
+        console.log('Token:', token);
+
       
-        const data = await getJobById(jobid.id);
+        const data = await getJobById(token,jobid.id);
       console.log(data)
       setjobData(data)
       } catch (err) {
@@ -78,12 +87,12 @@ function formatDate(dateString) {
         <h4>{jobData.title}</h4>
         <p>Details</p>
         <div className="otherinfo">
-                    <img  src="/Assets/per.png" alt="" />
+                    <img  src={jobData.company.logo&&jobData.company.logo} alt="" />
 <div className="personinfo">
-    <h4>Davvid</h4>
-    <p>Manager</p>
+    <h4>{jobData.company.name&&jobData.company.name}</h4>
+    <p>Company</p>
 </div>
-<button>+123123213213</button>
+<button>{jobData.company.contactNumber&&jobData.company.contactNumber}</button>
         </div>
         <div className="address">
                <img src="/Assets/loc2.svg" alt="" />
