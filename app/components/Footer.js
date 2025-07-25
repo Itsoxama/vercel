@@ -30,10 +30,10 @@ export default function Footer() {
                             <img src="/Assets/gbtn.png" alt=""/>
         </div>
         <div className="social-icons">
-          <a href="">  <img src="/Assets/1.svg" alt=""/></a>
-             <a href="">  <img src="/Assets/2.svg" alt=""/></a>
-             <a href="">  <img src="/Assets/3.svg" alt=""/></a>
-             <a href="">  <img src="/Assets/4.svg" alt=""/></a>
+          <a href="https://x.com" target="_blank">  <img src="/Assets/1.svg" alt=""/></a>
+             <a href="https://facebook.com" target="_blank">  <img src="/Assets/2.svg" alt=""/></a>
+             <a href="https://instagram.com" target="_blank">  <img src="/Assets/3.svg" alt=""/></a>
+             <a href="https://linkedin.com" target="_blank">  <img src="/Assets/4.svg" alt=""/></a>
             
         </div>
        </div>

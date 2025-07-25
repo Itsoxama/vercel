@@ -30,7 +30,7 @@ function formatDate(dateString) {
      <div className="jobcard" onClick={e=>openjob(job)}>
    
    <div className="jobtop " >
-            <img src="/Assets/icon1.png" alt=""/>
+            <img src="/Assets/cfslogo.svg" alt=""/>
             <div className="job-info">
                <h4>{job.title}</h4>
                  <p>     <img src="/Assets/loc.png" alt=""/>{job.companyaddress}</p>

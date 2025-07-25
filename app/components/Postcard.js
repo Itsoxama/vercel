@@ -87,7 +87,7 @@ function formatDate(dateString) {
         <h4>{jobData.title}</h4>
         <p>Details</p>
         <div className="otherinfo">
-                    <img  src={jobData.company.logo&&jobData.company.logo} alt="" />
+                    <img  src={jobData.company.logo?jobData.company.logo:"/Assets/cfslogo.svg"} alt="" />
 <div className="personinfo">
     <h4>{jobData.company.name&&jobData.company.name}</h4>
     <p>Company</p>

@@ -7,14 +7,13 @@ import { getJobsByFilters, getSearchQueries } from '../lib/api';
 
 export default async function Page() {
 const imageList = [
-    '/Assets/slide1.png',
-   '/Assets/slide1.png',
- '/Assets/slide1.png',
+    '/Assets/slide1.webp',
+   '/Assets/slide2.webp',
   ]
   const imageList2 = [
     '/Assets/review.png',
-   '/Assets/review.png',
- '/Assets/review.png',
+   '/Assets/rslide2.png',
+ '/Assets/rslide3.png',
   ]
     const blogs=[
     {

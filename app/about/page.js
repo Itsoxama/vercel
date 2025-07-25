@@ -3,14 +3,10 @@ import "./About.css"
 import "../globals.css"
 import Rslider from "../components/Rslider"
 export default function Planpage() {
-  const imageList2 = [
-    '/Assets/review.png',
-   '/Assets/review.png',
- '/Assets/review.png',
-  ]
+
   return (
 <div className="mainpage">
-    <img className="abt" src="/Assets/about.png" alt="" />
+    <img className="abt" src="/Assets/about.webp" alt="" />
     <h5 className="bld">About Us</h5>
     <div className="history">
         <h4>Our History</h4>
