@@ -51,8 +51,11 @@ box-shadow: 0 13px 26px #3d69cb47;
 font-family: DM Sans, sans-serif !important;
 }
 .discover{
+    box-sizing: border-box;
     width: 100%;
 padding: 43px;
+
+        margin-top: 40px;
 background-color:#3d69cb;
 border-radius: 20px;
 display: flex;
@@ -155,10 +158,34 @@ font-weight: 600;
             font-family: "Bricolage Grotesque", sans-serif!important;
 
 }
-.plancard>button{
+.plancard:hover{
+    background-color: #3d69cb;
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+.plancard:hover *{
+    transition-duration: 0.5s;
+    color: white;
+}
+.plancard:hover .crc{
+    transition-duration: 0.5s;
+background-color: white;
+}
+.plancard:hover a{
+background-color: white;
+color: #3d69cb;
+border: 2px solid #3d69cb;
+transition-duration: 0.5s;
+cursor: pointer;
+}
+
+.plancard>a{
     color: #fff;
+    border: 2px solid white;
+
 background-color: #3d69cb;
-border: none;
+
 border-radius: 12px;
 justify-content: center;
 align-items: center;

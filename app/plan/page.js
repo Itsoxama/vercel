@@ -10,8 +10,8 @@ const paymentData=await getPaymentPlans()
 
   const imageList2 = [
     '/Assets/review.png',
-   '/Assets/review.png',
- '/Assets/review.png',
+   '/Assets/rslide2.png',
+ '/Assets/rslide3.png',
   ]
   return (
 <div className="mainpage">
@@ -40,27 +40,30 @@ const paymentData=await getPaymentPlans()
 <div className="dis-item">
 Priority Job Placement – Get noticed by top talent quickly.
 </div>
+<div className="dis-item">
+Custom Branding – Showcase your company’s identity.
+  </div>
 
 <div className="dis-item">
 
 Unlimited Listings – Post as many jobs as you need.
         
   </div>
+  <div className="dis-item">
+Bulk Emails – Reach candidates in bulk.
+  </div>
 <div className="dis-item">
 Advanced Filtering – Filters to shortlist the best candidates.
+  </div>
+
+<div className="dis-item">
+Better Matching – Find top candidates faster.
   </div>
 <div className="dis-item">
 Automated Tracking – Simplify your hiring process.
   </div>
-<div className="dis-item">
-Custom Branding – Showcase your company’s identity.
-  </div>
-<div className="dis-item">
-Bulk Emails – Reach candidates in bulk.
-  </div>
-<div className="dis-item">
-Better Matching – Find top candidates faster.
-  </div>
+
+
 <div className="dis-item">
 Priority Support – Quick, expert assistance.
   </div>
@@ -85,7 +88,10 @@ Priority Support – Quick, expert assistance.
 
     {paymentData.planData.data.slice(0, 3).map(val=>(
   <div className="plancard">
-      <h4>{val.name}</h4>
+    {
+      //<h4>{val.name}</h4>
+    }  
+    <h4>Monthly Plan</h4>
       <p>Billing Cycle: Every Month</p>
       <div className="plan-bbreak">
 
@@ -94,16 +100,22 @@ Priority Support – Quick, expert assistance.
       <h3>Features</h3>
 
       {val.features.map(val2=>(
+
+
+
    <div className="litem">
         <div className="crc">
 
         </div>
-        <p>{val2}</p>
+                        <p dangerouslySetInnerHTML={{ __html: val2}} />
+
+
       </div>
       ))}
     
     
-      <button>Choose Plan</button>
+    
+      <a href="https://cfs.infibrain.com/Employee/Login">Choose Plan</a>
     </div>
     ))}
   

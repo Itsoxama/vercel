@@ -33,7 +33,7 @@ function formatDate(dateString) {
             <img src="/Assets/cfslogo.svg" alt=""/>
             <div className="job-info">
                <h4>{job.title}</h4>
-                 <p>     <img src="/Assets/loc.png" alt=""/>{job.companyaddress}</p>
+                 <p>     <img src="/Assets/loc.png" alt=""/>{job.jobLocationCity}, {job.jobLocationState}</p>
             </div>
 
 {job.applicationstatus&&job.applicationstatus.length>0?
@@ -64,11 +64,11 @@ function formatDate(dateString) {
       </div>
       </>
       }
-       {job.sector&&
+       {job.industry&&
       
       <>
       <div className="jobtag">
-        {job.sector}
+        {job.industry}
       </div>
       </>
       }
@@ -77,7 +77,7 @@ function formatDate(dateString) {
             
            
             </div>
-            <p>{job.description.substring(0,300)}</p>
+         <p dangerouslySetInnerHTML={{ __html: job.description.substring(0, 300) }} />
             <div className="job-share">
                 <p>Expiration:  {formatDate(job.expiration)}</p>
                 <button><img src="/Assets/share.png" alt=""/></button>

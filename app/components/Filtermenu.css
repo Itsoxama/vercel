@@ -229,8 +229,8 @@ font-family: DM Sans, sans-serif !important;
 
 }
 .post-details>p{
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: 700;
+    font-size: 15px;
   margin-bottom: 10px;
     margin-top: 20px;
     width: 95%;
@@ -243,6 +243,14 @@ font-family: DM Sans, sans-serif !important;
     font-size: 20px;
 
         font-family: "Bricolage Grotesque", sans-serif!important;
+}
+.cloo{
+    cursor: pointer;
+}
+.chkbox{
+    width: 23px;
+    height: 23px;
+    cursor: pointer;
 }
 .pad{
    

@@ -21,7 +21,7 @@ export default function Rslider({ images = [] }) {
 
             <div className="slide-details no-bg">
                 <div className="slide1 rslide">
-                    <p>Testimonial</p>
+                    <p className='bl-high'>Testimonial</p>
                     <h6>Listen to what <span className="bl-high">they say.</span></h6>
                  
                 </div>

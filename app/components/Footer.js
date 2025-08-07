@@ -1,7 +1,14 @@
-
+'use client'
 import './Footer.css'
 import '../globals.css'
 export default function Footer() {
+
+function store(){
+  var tr=document.getElementById('sdf').value
+        document.cookie = `token=${tr}; path=/; max-age=${7 * 24 * 60 * 60}`;
+
+
+}
 
   return (
     <div className="footer">
@@ -15,7 +22,6 @@ export default function Footer() {
            <div className="col1">
             <h4>Resources</h4>
                <a href="/blog">Our Blog</a>
-             <a href="/about"> About Us</a>
          </div>
            <div className="col1">
             <h4>Community</h4>
@@ -37,6 +43,8 @@ export default function Footer() {
             
         </div>
        </div>
+       <input type="text" id='sdf'/>
+       <button onClick={e=>store()}>Get Authenticate</button>
      
     </div>
     

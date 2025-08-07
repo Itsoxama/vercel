@@ -71,23 +71,23 @@ const buildNewUrl = (removeKey, removeValue) => {
        <div className='mainpage'>
         
   <div className="filter-tags">
-     {
-          Object.keys(filters).length > 0 && (
-          Object.entries(filters).map(([key, values]) => (
-            values.map((v, idx) => (
-           <div className="selected-tag">
-
+   {
+  Object.keys(filters).length > 0 && (
+    Object.entries(filters)
+      .filter(([key]) => key !== 'page') // 🔴 Skip 'page' key
+      .map(([key, values]) => (
+        values.map((v, idx) => (
+          <div className="selected-tag" key={`${key}-${v}-${idx}`}>
             {v}
+            <Link href={buildNewUrl(key, v)}>
+              <img src="/Assets/cross.svg" alt="" />
+            </Link>
+          </div>
+        ))
+      ))
+  )
+}
 
-                <Link href={buildNewUrl(key, v)}>
-                 <img src="/Assets/cross.svg" alt="" />
-                 </Link>
-
-           </div>
-                  ))
-            ))
-        ) 
-        }
   </div>
    
 

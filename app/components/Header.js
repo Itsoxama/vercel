@@ -169,7 +169,7 @@ const renderSuggestions = () => {
             (window.location = 'https://cfs.infibrain.com/Employee/Login')
           }
         >
-          Login
+          Login/Register
         </div>
         <div className="mob-btns">
           {showlogo === 1 && (

@@ -25,15 +25,15 @@ const imageList = [
     
     },
  {
-      title:'Mastering the art of cover letter',
+      title:'How to Build a Resume That Stands Out',
       category:'Tips',
       image:'/Assets/blog1.png',
    
     
     
     }, {
-      title:'Mastering the art of cover letter',
-      category:'Tips',
+      title:'How to Network Like a Pro in the ',
+      category:'Insights',
       image:'/Assets/blog3.png',
    
     
@@ -81,19 +81,19 @@ const imageList = [
                         </h4>
         </div>
             <div className="service">
-                        <img src="/Assets/icon1.png" alt=""/>
+                        <img src="/Assets/icon2.png" alt=""/>
                         <p>Commercial Construction</p>
                         <h4>
 Constructing high-performing, scalable commercial spaces that align with your business goals and brand identity.                        </h4>
         </div>
             <div className="service">
-                        <img src="/Assets/icon1.png" alt=""/>
+                        <img src="/Assets/icon3.png" alt=""/>
                         <p>Residential Construction</p>
                         <h4>
 From custom homes to renovations, we bring your dream living space to life with expert craftsmanship and care.                        </h4>
         </div>
             <div className="service">
-                        <img src="/Assets/icon1.png" alt=""/>
+                        <img src="/Assets/man.png" alt=""/>
                         <p>Manufacturing</p>
                         <h4>
 Building robust and efficient industrial facilities designed to optimize production, safety, and long-term scalability.                        </h4>
@@ -110,8 +110,13 @@ Building robust and efficient industrial facilities designed to optimize product
                        :
                        <div className="h4">No Jobs Found</div>
                       }
-       </div>
-               <h5>how does it work to? <span className="bl-high"> find job</span> </h5>
+                    
+                      
+                      </div>
+                        <a href='/jobs' className='seemore'>See More                                     <img src="/Assets/next.svg" alt=""/>
+
+       </a>
+               <h5>how does it work to <br/> <span className="bl-high"> find job?</span> </h5>
                <div className="instruc">
                 <div className="ins-card">
             <div className="ins-info">
@@ -142,7 +147,7 @@ Building robust and efficient industrial facilities designed to optimize product
                 </div>
                </div>
            
-<h5><span className='bl-high'>Discover</span> Insights and Tips for Your Future.</h5>
+<h5><span className='bl-high'>Discover</span> Insights and Tips <br/>for Your Future.</h5>
 <div className="blogs">
   {blogs.map(val=>(
   <Blogcard blog={val} />

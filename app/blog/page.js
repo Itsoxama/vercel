@@ -10,7 +10,7 @@ export default function Planpage() {
  '/Assets/review.png',
   ]
   const blogs=[
-    {
+     {
       title:'Mastering the art of cover letter',
       category:'Tips',
       image:'/Assets/blog1.png',
@@ -19,20 +19,21 @@ export default function Planpage() {
     
     },
  {
-      title:'Mastering the art of cover letter',
+      title:'How to Build a Resume That Stands Out',
       category:'Tips',
       image:'/Assets/blog1.png',
    
     
     
     }, {
-      title:'Mastering the art of cover letter',
-      category:'Tips',
+      title:'How to Network Like a Pro in the ',
+      category:'Insights',
       image:'/Assets/blog3.png',
    
     
     
-    },   {
+    },
+     {
       title:'Mastering the art of cover letter',
       category:'Tips',
       image:'/Assets/blog1.png',
@@ -41,26 +42,34 @@ export default function Planpage() {
     
     },
  {
-      title:'Mastering the art of cover letter',
+      title:'How to Build a Resume That Stands Out',
       category:'Tips',
       image:'/Assets/blog1.png',
    
     
     
     }, {
-      title:'Mastering the art of cover letter',
-      category:'Tips',
+      title:'How to Network Like a Pro in the ',
+      category:'Insights',
       image:'/Assets/blog3.png',
    
     
     
     },
+    
+    
   
   
   ]
   return (
 <div className="mainpage">
-  <h5>Discover Insights and Tips for Your Future.</h5>
+    <div className="breadcrumb bl-high">
+    <a href="/">Home   </a>
+    
+    /
+    <a href="/blog">  Our Blogs</a>
+  </div>
+ <h5 className='nomar'>Discover Insights and Tips <br /> for Your Future.</h5>
   <div className="blog-top">
     <img src="/Assets/blog.jpg" alt="" />
     <div className="bcard">
@@ -70,7 +79,9 @@ export default function Planpage() {
         <h4>
             Top 5 Skills Clients Are Looking for in 2025Top 5 Skills Clients Are Looking for in 2025
         </h4>
-        <p>August 20, 2022</p>
+        <p className="auth">     <img src="/Assets/auth.svg" alt="" />
+        <strong>Jaoson Loo</strong>
+  August 20, 2022</p>
     </div>
   </div>
   <div className="blogs">

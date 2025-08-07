@@ -1,7 +1,7 @@
 
 
 
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;400;500;600;800&family=DM+Sans:wght@100;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;400;500;600;700;800&family=DM+Sans:wght@100;400;500;600;700&display=swap');
 
 body {
   font-family: 'DM Sans', sans-serif;
@@ -16,11 +16,34 @@ body {
    font-family: "DM Sans", sans-serif;
  
 }
+
+.seemore{
+  float: right;
+  cursor: pointer;
+  margin-top: 20px;
+  
+color: #fff;
+background-color: #3d69cb;
+border-radius: 5px;
+justify-content: center;
+align-items: center;
+width: 136px;
+height: 51px;
+font-size: 16px;
+font-weight: 700;
+display: flex;
+box-shadow: 0 13px 26px #3d69cb47;
+font-family: DM Sans, sans-serif !important;
+}
 *:focus{
   outline: none;
 }
 button{
   cursor: pointer;
+}
+.seemore>img{
+
+  margin-left: 10px;
 }
 .mainpage{
   width: 90%;
@@ -149,10 +172,12 @@ a{
   flex-wrap: wrap;
 
 
-}
+}.mainpage{
+min-height: calc(100vh - 101px - 359px);}
 .jobs{
   width: 100%;
-  justify-content: space-between;
+  justify-content: start;
+  gap: 2%;
   display: flex;
   flex-wrap: wrap;
 
@@ -201,7 +226,17 @@ flex: 1;
 .bl-high{
   color: #3D69CB;
 }
-
+.breadcrumb{
+  margin-top: 80px;
+}
+.nomar{
+  margin-top: 0px!important;
+}
+.breadcrumb>a{
+  color: #3D69CB!important;
+  font-size: 20px;
+  font-weight: 600;
+}
 
 /* Extra small devices (phones) */
 @media (max-width: 750px) {
@@ -241,6 +276,7 @@ flex: 1;
 .ins-info{
   width: 70%;
 }
+
 .ins-card{
   margin-top: 20px;
   width: 100%;

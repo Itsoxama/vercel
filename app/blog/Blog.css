@@ -15,6 +15,17 @@ display: flex;
 position: relative;
 
 }
+.auth{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.auth>strong{
+    margin-right: 10px;
+}
+.auth>img{
+    margin-right: 10px;
+}
 .bcard{
     background-color: white;
     border-radius: 10px;

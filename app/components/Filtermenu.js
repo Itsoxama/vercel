@@ -248,7 +248,17 @@ export default function Filtermenu({ filters, setshowmenu }) {
               
               .map((val, index) => (
                 <div className="filter-option">
-                  <input type="checkbox" checked={val.checked && val.checked === true ? true : false} onChange={e => changeIndustries(val, index)} />
+
+                  {
+                    val.checked && val.checked === true ?
+                <img src="/Assets/chk2.png" className='chkbox' alt="" onClick={e => changeIndustries(val, index)} />
+
+                    :
+                <img src="/Assets/chk1.png" alt="" className='chkbox' onClick={e => changeIndustries(val, index)} />
+
+
+                  }
+               
                   <p>{val.name}</p>
                 </div>
 
@@ -277,7 +287,17 @@ export default function Filtermenu({ filters, setshowmenu }) {
 
 
                     <div className="filter-option">
-                      <input type="checkbox" checked={val.checked && val.checked === true ? true : false} onChange={e => addtoSearchInd(val, index)} />
+
+ {
+                    val.checked && val.checked === true ?
+                <img src="/Assets/chk2.png" className='chkbox' alt="" onClick={e => addtoSearchInd(val, index)} />
+
+                    :
+                <img src="/Assets/chk1.png" alt="" className='chkbox' onClick={e => addtoSearchInd(val, index)} />
+
+
+                  }
+
                       <p>{val.name}</p>
                     </div>
 
@@ -295,7 +315,16 @@ export default function Filtermenu({ filters, setshowmenu }) {
 
               {jobtypedata.map((val, index) => (
                 <div className="filter-option">
-                  <input type="checkbox" checked={val.checked && val.checked === true ? true : false} onChange={e => addtoSearch(val, index)} />
+ {
+                    val.checked && val.checked === true ?
+                <img src="/Assets/chk2.png" className='chkbox' alt="" onClick={e => addtoSearch(val, index)} />
+
+                    :
+                <img src="/Assets/chk1.png" alt="" className='chkbox' onClick={e => addtoSearch(val, index)} />
+
+
+                  }
+
                   <p>{val.name}</p>
                 </div>
 
