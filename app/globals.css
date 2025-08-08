@@ -31,9 +31,10 @@ body {
     display: flex
 ;
 }
-*::selection {
-  background: transparent;
-  color: inherit;
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-focus-ring-color: transparent;
+  outline: none;
 }
 .hideondes{
   display: none!important;
