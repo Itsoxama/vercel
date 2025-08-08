@@ -101,7 +101,7 @@ function formatDate(dateString) {
         <div className="statscards">
             <div className="statscard">
 
-                <p>Hourly</p>
+                <p>{jobData?.salaryType}</p>
                 <h4>  {formatSalary(jobData.salary.min)} - {formatSalary(jobData.salary.max)}
 </h4>
             </div>
@@ -129,7 +129,15 @@ function formatDate(dateString) {
               
             </div>
         </div>
-         <img className='postimg' src="/Assets/job.png" alt="" />
+        <img
+        className='postimg'
+  src={jobData.jobimage || "/Assets/job.png"}
+  alt="Company Logo"
+  onError={(e) => {
+    e.target.onerror = null; // Prevents infinite loop
+    e.target.src = "/Assets/job.png"; // Fallback logo
+  }}
+/>
      
         <h4>{jobData.title}</h4>
         <p>Details</p>
@@ -161,9 +169,12 @@ function formatDate(dateString) {
         </div>
         <p>Benefits</p>
         <div className="bentags">
-            <div className="tagben">
-                Health Insurance
+          {jobData.benefits.map(val=>(
+             <div className="tagben">
+               {val.name}
             </div>
+          ))}
+           
         </div>        <p>                  
 Requirements</p>
           <div className="address">
@@ -171,13 +182,13 @@ Requirements</p>
             {jobData.requirements.qualifications}
         </div>
  <p>Company Overview</p>
-                <span dangerouslySetInnerHTML={{ __html: jobid.description.substring(0, 300) }} />
+                <span dangerouslySetInnerHTML={{ __html: jobData.companyOverview }} />
 
  
 
  
   <p>Responsibilities</p>
-  <span dangerouslySetInnerHTML={{ __html: jobid.description.substring(0, 300) }} />
+  <span dangerouslySetInnerHTML={{ __html: jobData.responsibilities }} />
 <button className='applybtn' onClick={e=>window.location="https://cfs.infibrain.com/Employee/Login"}>Apply Now</button>
 <div className="pad">
 

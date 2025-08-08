@@ -4,6 +4,7 @@ import Jobcard from './components/Jobcard';
 import Rslider from './components/Rslider';
 import Blogcard from './components/Blogcard';
 import { getJobsByFilters, getSearchQueries } from '../lib/api';
+import JobSlider from './components/Jobslider';
 
 export default async function Page() {
 const imageList = [
@@ -101,7 +102,7 @@ Building robust and efficient industrial facilities designed to optimize product
       </div>
            <h4><span className='bl-high'>Latest</span> Job opportunity</h4>
 
-       <div className="jobs">
+       <div className="jobs hideonmob">
             { 
                        jobsData&& jobsData.success===true?
                        jobsData.jobData.data.map((job=>(
@@ -111,12 +112,24 @@ Building robust and efficient industrial facilities designed to optimize product
                        <div className="h4">No Jobs Found</div>
                       }
                     
+             
                       
                       </div>
-                        <a href='/jobs' className='seemore'>See More                                     <img src="/Assets/next.svg" alt=""/>
+
+                      <div className="jobs hideondes ">
+                           { 
+                       jobsData&& jobsData.success===true?
+                             <JobSlider jobs={jobsData.jobData.data} />
+                       :
+                       <div className="h4">No Jobs Found</div>
+                      }
+                      </div>
+                        <a href='/jobs' className='seemore hideonmob'>See More                                     <img src="/Assets/next.svg" alt=""/>
 
        </a>
-               <h5>how does it work to <br/> <span className="bl-high"> find job?</span> </h5>
+               <h5 className='hideonmob'>how does it work to <br/> <span className="bl-high"> find job?</span> </h5>
+
+               <h5 className='hideondes'>how does it work to  <span className="bl-high mr">   find job?</span> </h5>
                <div className="instruc">
                 <div className="ins-card">
             <div className="ins-info">

@@ -1,7 +1,7 @@
 .filtermenu{
     height: 100vh;
     position: fixed;
-    z-index: 9;
+    z-index: 99999;
     overflow: hidden;
     display: flex;
     left: 0;
@@ -9,6 +9,7 @@
     background-color: rgb(0, 0, 0,0.2);
     width: 100vw;
 }
+
 .filtercard>h4{
     font-size: 20px;
     font-weight: 700;
@@ -346,7 +347,9 @@ min-height: 50px;
     box-sizing: border-box;
 }
 
-
+.nooverlap{
+    width: 80vw!important;
+}
 .sidemenu{
     width: 100vw;
 box-sizing: border-box;

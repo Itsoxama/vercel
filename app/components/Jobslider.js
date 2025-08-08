@@ -1,33 +1,50 @@
-'use client'
-import './Jobcard.css'
+// components/Slider.js
+'use client' // (If you're using App Router)
 import '../globals.css'
-import { useState } from 'react';
-import Postcard from './Postcard';
-export default function Jobcard({job}) {
-const [jobopen, setjobopen] = useState(0)
-const [selectedjobid, setselectedjobid] = useState("")
-function openjob(val){
 
-  setselectedjobid(val)
-  setjobopen(1)
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import './Slider.css'
+export default function JobSlider({ jobs = [] }) {
+    function getDaysAgo(dateString) {
+  const postedDate = new Date(dateString);
+  const today = new Date();
 
-}
-function formatDate(dateString) {
-  const date = new Date(dateString);
+  // Remove time part for accurate comparison
+  postedDate.setHours(0, 0, 0, 0);
+  today.setHours(0, 0, 0, 0);
 
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-based
-  const year = date.getFullYear();
+  const diffTime = today - postedDate;
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
-  return `${day}/${month}/${year}`;
+  if (diffDays === 0) {
+    return "Today";
+  } else if (diffDays === 1) {
+    return "1 day ago";
+  } else if (diffDays > 1) {
+    return `${diffDays} days ago`;
+  } else {
+    return "In the future";
+  }
 }
 
   return (
-    <>
-    
-     {jobopen===1&&
-    <Postcard jobid={selectedjobid} setjobopen={setjobopen}  />}
-     <div className="jobcard" onClick={e=>openjob(job)}>
+    <Swiper
+      modules={[Navigation]}
+      navigation
+      spaceBetween={20}
+      slidesPerView={1}
+      loop
+    >
+      {jobs.map((job, index) => (
+
+        
+        <SwiperSlide key={index}>
+
+            
+      <div className="jobcard center"  >
    
    <div className="jobtop " >
             <img src="/Assets/cfslogo.svg" alt=""/>
@@ -90,13 +107,15 @@ function formatDate(dateString) {
             </div>
          <p dangerouslySetInnerHTML={{ __html: job.description.substring(0, 300) }} />
             <div className="job-share">
-                <p>Expiration:  {formatDate(job.expiration)}</p>
+                <p>{getDaysAgo(job.postedDate)} </p>
                 <button><img src="/Assets/share.png" alt=""/></button>
             </div>
 
    </div>
-    </>
-  
-    
-  );
+
+
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  )
 }

@@ -17,6 +17,12 @@ flex-direction: column;
     display: flex;
 
 }
+.hidesocialonmob{
+    display: flex!important;
+}
+.hidesocialondes{
+    display: none!important;
+}
 .socialfooter>h4{
     font-weight: 400;
     font-size: 16px;
@@ -94,5 +100,18 @@ margin-right: 10px;
 {
     flex-direction: column;
 
+}
+.hidesocialonmob{
+    display: none!important;
+}
+.hidesocialondes{
+    display: flex!important;
+}
+.btop{
+    border-top: 2px solid #a3c5ff;
+}
+.socialfooter>h4{
+    font-size: 12px;
+    text-align: center;
 }
 }

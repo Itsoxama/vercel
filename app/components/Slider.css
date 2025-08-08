@@ -137,6 +137,9 @@ justify-content: center;
 .swiper-button-prev::after,.swiper-button-next::after{
     font-size: 18px!important;
 }
+.center{
+    justify-self: center;
+}
 .play{
     display: flex;
     align-items: center;

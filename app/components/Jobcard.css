@@ -13,7 +13,7 @@
 .jobtags{
     widows: 90%;
     display: flex;
-
+flex-wrap: wrap;
 }
 
 .jobcard{
@@ -21,6 +21,7 @@
 }
 .jobtag>p{margin-bottom: 0px;}
 .jobtag{
+    margin-bottom: 10px;
     background-color: #f3f3f3;
     border-radius: 30px;
     height: 26px;
@@ -115,7 +116,9 @@
 
 /* Extra small devices (phones) */
 @media (max-width: 750px) {
-
+.nomr{
+    margin-top: 0px;
+}
 .jobcard{
     width: 100%;
 }

@@ -16,7 +16,31 @@ body {
    font-family: "DM Sans", sans-serif;
  
 }
-
+.clr{
+        cursor: pointer;
+    color: #3d69cb;
+    background-color: #ffffff;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    height: 33px;
+    margin-right: 10px;
+    font-weight: 400;
+    padding-inline: 12px;
+    font-size: 12px;
+    display: flex
+;
+}
+*::selection {
+  background: transparent;
+  color: inherit;
+}
+.hideondes{
+  display: none!important;
+}
+.hideonmob{
+  display: block;
+}
 .seemore{
   float: right;
   cursor: pointer;
@@ -273,6 +297,17 @@ flex: 1;
 .instruc{
   flex-direction: column;
 }
+.mr{
+  margin-left: 10px;
+}
+.hideonmob{
+  
+  display: none!important;
+}
+.hideondes{
+
+  display: flex!important;
+}
 .ins-info{
   width: 70%;
 }
@@ -283,5 +318,13 @@ flex: 1;
 }
 .blogs{
   flex-direction: column;
+}
+.ins-info>h4{
+  font-size: 14px;
+  
+}
+.ins-info>p{
+  font-size: 12px;
+  
 }
 }

@@ -22,13 +22,16 @@
     cursor: pointer;
 }
 .pheader{
+    z-index: 9999;
+}
+.pheader{
     display: flex;
     align-items: center;
     width: 100vw;
     position: sticky;
     top: 0;
     padding-bottom: 10px;
-    z-index: 9;
+ 
     background-color: white;
 }
 .login{
@@ -174,7 +177,7 @@ justify-content: center;    box-shadow: 0px 13px 26px #3D69CB47;
     width: 100%;
 }
 .res-menu{
-    width: 250px;
+    width:181px;
     
     padding: 20px;
     box-sizing: border-box;

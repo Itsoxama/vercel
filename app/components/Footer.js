@@ -14,7 +14,7 @@ function store(){
     <div className="footer">
        <div className="subfooter">
          <img src="/Assets/flogo.png" alt=""/>
-         <div className="col1">
+         <div className="col1 btop">
             <h4>Company</h4>
             <a href="/about"> About Us</a>
              <a href="/plan"> Plans</a>
@@ -28,6 +28,13 @@ function store(){
             <a href="/terms-and-conditions"> Terms & Conditions</a>
             <a href="/privacy"> Privacy Policy</a>
          </div>
+           <div className="social-icons hidesocialondes">
+          <a href="https://x.com" target="_blank">  <img src="/Assets/1.svg" alt=""/></a>
+             <a href="https://facebook.com" target="_blank">  <img src="/Assets/2.svg" alt=""/></a>
+             <a href="https://instagram.com" target="_blank">  <img src="/Assets/3.svg" alt=""/></a>
+             <a href="https://linkedin.com" target="_blank">  <img src="/Assets/4.svg" alt=""/></a>
+            
+        </div>
        </div>
        <div className="socialfooter">
         <h4>©  Copyright 2025 All Right Reserved. City Force LLC</h4>
@@ -35,7 +42,7 @@ function store(){
                     <img src="/Assets/abtn.png" alt=""/>
                             <img src="/Assets/gbtn.png" alt=""/>
         </div>
-        <div className="social-icons">
+        <div className="social-icons hidesocialonmob">
           <a href="https://x.com" target="_blank">  <img src="/Assets/1.svg" alt=""/></a>
              <a href="https://facebook.com" target="_blank">  <img src="/Assets/2.svg" alt=""/></a>
              <a href="https://instagram.com" target="_blank">  <img src="/Assets/3.svg" alt=""/></a>

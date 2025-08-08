@@ -47,7 +47,8 @@ export default function Filtermenu({ filters, setshowmenu }) {
     }
 
     if (expyears > 0 || expmonth > 0) {
-      params.append("experience", `${expyears} Year & ${expmonth} Month`)
+      params.append("experience", `${expyears.toString().padStart(2, '0')} Year & ${expmonth.toString().padStart(2, '0')} Month`);
+
     }
     if (location) {
       params.append("location", location)
@@ -195,7 +196,7 @@ export default function Filtermenu({ filters, setshowmenu }) {
 
   return (
     <div className="filtermenu" onClick={handleFilterClick}>
-      <div className="sidemenu" ref={sidemenuRef}>
+      <div className="sidemenu nooverlap" ref={sidemenuRef}>
         <img onClick={e => setshowmenu(0)} src="/Assets/close.svg" alt="" />
         <div className="filtercard">
           <h4>Location</h4>

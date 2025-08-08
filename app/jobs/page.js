@@ -2,7 +2,7 @@
 
 import { getJobsByFilters } from '../../lib/api';
 import Jobcard from '../components/Jobcard';
-import "../globals.css"
+import "../globals.css";
 import Link from 'next/link';
 import { cookies } from "next/headers";
 
@@ -25,7 +25,7 @@ export default async function  Page({searchParams: searchParamsPromise}) {
   const jobsData = await getJobsByFilters({
 token:token,
        experienceLevel: filters.experience?.[0] || "",
-       location:filters.location?.[0] || "",
+       locationsearch:filters.location?.[0] || "",
     sector: filters.sector || [],
     industry: filters.industry || [],
     jobType: filters.jobtype || [],
@@ -72,7 +72,9 @@ const buildNewUrl = (removeKey, removeValue) => {
         
   <div className="filter-tags">
    {
-  Object.keys(filters).length > 0 && (
+  Object.keys(filters).length > 0 &&
+  
+  (
     Object.entries(filters)
       .filter(([key]) => key !== 'page') // 🔴 Skip 'page' key
       .map(([key, values]) => (
@@ -86,6 +88,15 @@ const buildNewUrl = (removeKey, removeValue) => {
         ))
       ))
   )
+
+  
+}
+
+{
+  Object.keys(filters).filter(key => key !== "page").length > 0 &&
+    <a href='/jobs' className="clr">
+      Clear Filters
+    </a>
 }
 
   </div>
