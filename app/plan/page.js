@@ -3,6 +3,7 @@ import "./Plan.css"
 import "../globals.css"
 import Rslider from "../components/Rslider"
 import { getPaymentPlans } from "../../lib/api"
+import Planslider from "../components/Planslider"
 export default async function Planpage() {
 
 const paymentData=await getPaymentPlans()
@@ -83,7 +84,7 @@ Priority Support – Quick, expert assistance.
   For You</span></h5>
 
 
-  <div className="plan-cards">
+  <div className="plan-cards hideonmob"  >
 
 
     {paymentData.planData.data.slice(0, 3).map(val=>(
@@ -119,7 +120,10 @@ Priority Support – Quick, expert assistance.
     </div>
     ))}
   
-    
+  </div>
+  <div className="plan-cards hideondes">
+
+    <Planslider plans={paymentData.planData.data.slice(0, 3)} />
   </div>
     <div className="planinfo reverse">
     <div className="planinfo1">

@@ -10,6 +10,7 @@ import './Slider.css'
 export default function Rslider({ images = [] }) {
   return (
     <Swiper
+    className='rslid'
       modules={[Navigation]}
       navigation
       spaceBetween={20}
@@ -25,11 +26,25 @@ export default function Rslider({ images = [] }) {
                     <h6>Listen to what <span className="bl-high">they say.</span></h6>
                  
                 </div>
-  <img
-  className='rslide2'
-            src={img}
-            alt={`Slide ${index + 1}`}
-          />
+                <div className="rslide2">
+            
+
+<img src={img} alt="" />
+                   <div className="testimonial">
+                            <img className='arr' src='/Assets/arr.png' alt="" />
+                  <p>I wanted to switch from retail to tech but didn’t know where to start. The career resources and AI-driven job matching helped me land a junior developer role that fits my goals perfectly.</p>
+   <div className="user">
+                  James R
+                </div>
+                <div className="user2">
+                  Junior Software <br/>Developer
+                </div>
+
+                </div>
+                </div>
+               
+             
+
             </div>
         
         </SwiperSlide>

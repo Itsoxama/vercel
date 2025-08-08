@@ -272,7 +272,15 @@ flex: 1;
   margin-bottom: 30px;
   width: 90%;
 }
-
+.selected-tag{
+  margin-bottom: 10px;
+}
+.filter-tags{
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+}
 .mainpage>h4{
   font-size: 25px;
   margin-bottom: 20px;

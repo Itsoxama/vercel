@@ -232,7 +232,7 @@ font-family: DM Sans, sans-serif !important;
 .post-details>p{
     font-weight: 700;
     font-size: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
     margin-top: 20px;
     width: 95%;
 
@@ -337,6 +337,22 @@ min-height: 50px;
 
 /* Extra small devices (phones) */
 @media (max-width: 750px) {
+.post-details{
+     animation: move2 0.2s !important;
+      animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+
+}
+
+@keyframes move2 {
+
+  from {
+    top: 100vh;
+  }
+  to {
+     top: 0px;
+  }
+}
 .cloo{
     align-self: flex-end;margin-right: 2.5%;
 }

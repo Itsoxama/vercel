@@ -28,8 +28,60 @@
 .slide-details>img{
     width: 45%;
 }
+.rslid{
+    padding-bottom: 20px;
+}
+.testimonial{
+    margin-left: 40px;
+    width: 60%;
+
+}
+.rslid{
+    margin-top: 80px;
+}
 .rslide2{
-    width: 80%!important;
+    position: relative;
+}
+.arr{
+    position: absolute;
+    top: -40px;
+    right: 40px;
+}
+.testimonial>p{
+    margin-bottom: 60px;
+font-size: 20px;
+font-weight: 400;
+color: #1C1C1C;
+}
+.user{
+    font-size: 20px;
+font-weight: 500;
+color: #1C1C1C;
+}.user2{
+    font-size: 16px;
+font-weight: 400;
+color: #1C1C1C;
+}
+.rslide2{
+    height: 365px;
+    display: flex;
+  
+    align-items: center;
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+.rslide2>img{
+    width: 319px;
+    height: 375px;
+    border-radius: 10px;
+}
+.testimonial{
+    display: flex;
+    flex-direction: column;
+}
+.rslide2{
+    width: 80%;
+    display: flex;
     height: intrinsic;
 
 }
@@ -137,6 +189,7 @@ justify-content: center;
 .swiper-button-prev::after,.swiper-button-next::after{
     font-size: 18px!important;
 }
+
 .center{
     justify-self: center;
 }
@@ -167,6 +220,7 @@ justify-content: center;
     width: 100%;
 }
 
+
 /* Extra small devices (phones) */
 @media (max-width: 750px) {
 
@@ -195,12 +249,45 @@ justify-content: center;
 
 }
 
+.rslide2{
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    align-items: flex-start;
+    height: max-content;
+}
+.testimonial>p{
+    margin-bottom: 30px;
+}
+.rslide{
+    margin-bottom: 100px;
+}
+.user{
+    font-size: 16px;
+}
+.rslide2>img{
+    margin-top: -90px;
+    width: 153px;
+    height: 179px;
+}
 
+.user2{
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.testimonial>p{
+    margin-top: 20px;
+    font-size: 14px;
+}
 .swiper-button-prev{
     left: 35%!important;
     top: 95%!important;
 
 
+}
+.testimonial{
+    margin-left: 0px;
+    width: 90%;
 }
 .swiper{
     margin-bottom: 100px;
@@ -224,6 +311,9 @@ justify-content: center;
 .rslide{
     padding-left: 0px;
     width: 100%!important;
+}
+.planslider{
+    margin-bottom: 0px;
 }
 .slide1{
     width: 100%;

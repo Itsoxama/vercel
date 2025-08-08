@@ -8,7 +8,7 @@ export default function Filtermenu({ filters, setshowmenu }) {
 
 
   const [filterdata, setfilterdata] = useState(filters.data)
-  const [industrydata, setindustrydata] = useState(filters.data.industries)
+  const [industrydata, setindustrydata] = useState([])
   const [jobtypedata, setjobtypedata] = useState(filters.data.jobTypes)
   const [expOpen, setexpOpen] = useState(0)
   const [secOpen, setsecOpen] = useState(0)
@@ -156,10 +156,10 @@ export default function Filtermenu({ filters, setshowmenu }) {
   function changeIndustries(cha, index) {
     console.log(cha)
     if (cha.checked && cha.checked === true) {
-      /*  setindustrydata((prev) =>
-        prev.filter(item => !(item.sec === cha.id && filterdata.industries.includes(item.ind)))
+       setindustrydata((prev) =>
+        prev.filter(item => !(item.sectorId === cha.id ))
       );
-      */
+      
       var tr = { ...filterdata }
       setfilterdata([])
       tr.sectors[index] =
@@ -172,13 +172,13 @@ export default function Filtermenu({ filters, setshowmenu }) {
 
     }
     else {
-      /* filterdata.industries.forEach(element => {
-     if(element.id===cha.id){
-       setindustrydata((industrydata) => [...industrydata, { sec: cha.id, ind: element }])
+     filterdata.industries.forEach(element => {
+     if(element.sectorId===cha.id){
+       setindustrydata((industrydata) => [...industrydata, {...element}])
 
        }
      });
-     */
+     
       var tr = { ...filterdata }
       setfilterdata([])
       tr.sectors[index] =
@@ -192,6 +192,7 @@ export default function Filtermenu({ filters, setshowmenu }) {
 
     }
 
+    
   }
 
   return (

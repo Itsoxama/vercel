@@ -15,3 +15,12 @@ width:100%;
   font-weight: 600;
   color: #000;
 }
+
+/* Extra small devices (phones) */
+@media (max-width: 750px) {
+.terms-container{
+  padding: 0px;
+  padding-top: 20px;
+}
+}
+

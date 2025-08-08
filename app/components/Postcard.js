@@ -90,7 +90,7 @@ function formatDate(dateString) {
 // JSX usage
 
   return (
-   <div className="filtermenu" onClick={handleFilterClick} >
+   <div className="filtermenu bot-anim" onClick={handleFilterClick} >
 
 
     <div className="post-details"  ref={sidemenuRef}>
