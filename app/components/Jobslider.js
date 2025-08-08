@@ -7,7 +7,18 @@ import { Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import './Slider.css'
+import Postcard from './Postcard'
+import { useState } from 'react'
 export default function JobSlider({ jobs = [] }) {
+
+    const [jobopen, setjobopen] = useState(0)
+    const [selectedjobid, setselectedjobid] = useState("")
+    function openjob(val){
+    
+      setselectedjobid(val)
+      setjobopen(1)
+    
+    }
     function getDaysAgo(dateString) {
   const postedDate = new Date(dateString);
   const today = new Date();
@@ -30,8 +41,11 @@ export default function JobSlider({ jobs = [] }) {
   }
 }
 
-  return (
-    <Swiper
+  return (<>
+  
+       {jobopen===1&&
+      <Postcard jobid={selectedjobid} setjobopen={setjobopen}  />}
+   <Swiper
       modules={[Navigation]}
       navigation
       spaceBetween={20}
@@ -44,7 +58,7 @@ export default function JobSlider({ jobs = [] }) {
         <SwiperSlide key={index}>
 
             
-      <div className="jobcard center"  >
+      <div className="jobcard center"   onClick={e=>openjob(job)}>
    
    <div className="jobtop " >
             <img src="/Assets/cfslogo.svg" alt=""/>
@@ -117,5 +131,8 @@ export default function JobSlider({ jobs = [] }) {
         </SwiperSlide>
       ))}
     </Swiper>
+  </>
+
+   
   )
 }
