@@ -45,9 +45,13 @@ function formatDate(dateString) {
                  <p>     <img src="/Assets/loc.png" alt=""/>{job.companyState} , {job.companyCity}</p>
               
             </div>
-   <div className="save">
+            {/**
+              
+              <div className="save">
                     <img src="/Assets/save.png" alt=""/>
                  </div>
+             */}
+  
 {job.applicationstatus&&job.applicationstatus.length>0?
        <div className="status">
           {job.applicationstatus[0].applicationStatus}
