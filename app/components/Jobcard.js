@@ -30,12 +30,24 @@ function formatDate(dateString) {
      <div className="jobcard" onClick={e=>openjob(job)}>
    
    <div className="jobtop " >
-            <img src="/Assets/cfslogo.svg" alt=""/>
+              <img
+       
+  src={job.jobImage || "/Assets/cfslogo.svg"}
+  alt="Company Logo"
+  onError={(e) => {
+    e.target.onerror = null; // Prevents infinite loop
+    e.target.src = "/Assets/cfslogo.svg"; // Fallback logo
+  }}
+/>
+     
             <div className="job-info">
                <h4>{job.title}</h4>
-                 <p>     <img src="/Assets/loc.png" alt=""/>{job.jobLocationCity}, {job.jobLocationState}</p>
+                 <p>     <img src="/Assets/loc.png" alt=""/>{job.companyState} , {job.companyCity}</p>
+              
             </div>
-
+   <div className="save">
+                    <img src="/Assets/save.png" alt=""/>
+                 </div>
 {job.applicationstatus&&job.applicationstatus.length>0?
        <div className="status">
           {job.applicationstatus[0].applicationStatus}

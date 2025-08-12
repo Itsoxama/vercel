@@ -89,6 +89,26 @@ const renderSuggestions = () => {
     ))
   );
 };
+const searchRef = useRef(null);
+
+useEffect(() => {
+  const handleClickOutside = (event) => {
+    if (
+      searchRef.current &&
+      !searchRef.current.contains(event.target)
+    ) {
+      setshowlogo(1);
+    }
+  };
+
+  document.addEventListener('mousedown', handleClickOutside);
+  document.addEventListener('touchstart', handleClickOutside);
+
+  return () => {
+    document.removeEventListener('mousedown', handleClickOutside);
+    document.removeEventListener('touchstart', handleClickOutside);
+  };
+}, []);
 
 
   return (
@@ -106,7 +126,7 @@ const renderSuggestions = () => {
             <img src="/Assets/logo.png" alt="" />
           </a>
         ) : (
-          <div className="searcharea mobsearcharea">
+          <div className="searcharea mobsearcharea" ref={searchRef}>
             <div className="search">
               <img src="/Assets/search.svg" alt="" />
               <input
@@ -117,12 +137,6 @@ const renderSuggestions = () => {
               />
               {query.length > 0 && <div className="ddown">{renderSuggestions()}</div>}
 
-              <img
-                className="searchcl"
-                onClick={() => setshowlogo(1)}
-                src="/Assets/cross.svg"
-                alt=""
-              />
             </div>
             <div
               className="filter d-top"

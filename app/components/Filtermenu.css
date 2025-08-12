@@ -377,4 +377,8 @@ box-sizing: border-box;
 .statscard>h4{
     font-size: 11px;
 }
+.post-details>span,.address{
+    margin-top: 5px!important;
+
+}
 }

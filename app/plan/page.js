@@ -10,9 +10,9 @@ const paymentData=await getPaymentPlans()
 
 
   const imageList2 = [
-    '/Assets/review.png',
-   '/Assets/rslide2.png',
- '/Assets/rslide3.png',
+    '/Assets/image.png',
+       '/Assets/image2.png',
+          '/Assets/image3.png',
   ]
   return (
 <div className="mainpage">

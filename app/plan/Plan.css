@@ -236,8 +236,7 @@ font-family: DM Sans, sans-serif !important;
     }
 .dis-card{
     box-sizing: border-box;
-    transform: translateY(190px);
-    margin-bottom: 100px;
+    margin-top: -70px;
 }
 .reverse{
     flex-direction: column-reverse!important;

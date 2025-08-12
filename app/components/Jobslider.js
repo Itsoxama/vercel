@@ -61,11 +61,20 @@ export default function JobSlider({ jobs = [] }) {
       <div className="jobcard center"   onClick={e=>openjob(job)}>
    
    <div className="jobtop " >
-            <img src="/Assets/cfslogo.svg" alt=""/>
+               <img
+        
+  src={job.jobImage || "/Assets/cfslogo.svg"}
+  alt="Company Logo"
+  onError={(e) => {
+    e.target.onerror = null; // Prevents infinite loop
+    e.target.src = "/Assets/cfslogo.svg"; // Fallback logo
+  }}
+/>
+     
             <div className="job-info">
                <h4>{job.title}</h4>
-                 <p>     <img src="/Assets/loc.png" alt=""/>{job.jobLocationCity}, {job.jobLocationState}</p>
-            </div>
+
+                 <p>     <img src="/Assets/loc.png" alt=""/> {job.companyState} , {job.companyCity}</p>            </div>
 
 {job.applicationstatus&&job.applicationstatus.length>0?
        <div className="status">
