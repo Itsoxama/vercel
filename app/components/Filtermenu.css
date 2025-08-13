@@ -188,7 +188,7 @@ margin-left: 10px;
 .bentags{
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 5px;
     flex-wrap: wrap;
     width: 95%;
 }
