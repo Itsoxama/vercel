@@ -99,7 +99,7 @@ margin-bottom: 19px;
 }
 .dis-card{
     padding: 30px;
-      transform: translateY(90);
+      transform: translateY(90px);
       justify-content: space-between;
     width: 95%;
     flex-wrap: wrap;

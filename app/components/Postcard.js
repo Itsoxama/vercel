@@ -99,12 +99,13 @@ function formatDate(dateString) {
         <img src="/Assets/close.svg" className='cloo' onClick={e=>setjobopen(0)
         } alt="" />
         <div className="statscards">
+         {jobid.salaryRange&&
             <div className="statscard">
 
                 <p>{jobData?.salaryType}</p>
                 <h4>  {formatSalary(jobData.salary.min)} - {formatSalary(jobData.salary.max)}
 </h4>
-            </div>
+            </div>}
             <div className="statsbreak"></div>
                <div className="statscard">
 
