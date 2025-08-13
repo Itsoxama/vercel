@@ -300,7 +300,7 @@ function deleteLocation(dellocation) {
              onFocus={() => setIsActive(true)}
            
             placeholder='Charlotte NC' />
-                {isActive&& <div className="ddown2">{renderSuggestions()}</div>}
+                {isActive&&locations.length>0&& <div className="ddown2">{renderSuggestions()}</div>}
           </div>
           <div className="break">
 

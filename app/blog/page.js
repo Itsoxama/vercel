@@ -13,7 +13,7 @@ export default function Planpage() {
      {
       title:'Mastering the art of cover letter',
       category:'Tips',
-      image:'/Assets/blog1.png',
+      image:'/Assets/i1.jpg',
    
     
     
@@ -34,24 +34,24 @@ export default function Planpage() {
     
     },
      {
-      title:'Mastering the art of cover letter',
+      title:'How to Make a Hire-Worthy Profile',
       category:'Tips',
-      image:'/Assets/blog1.png',
+      image:'/Assets/i4.png',
    
     
     
     },
  {
-      title:'How to Build a Resume That Stands Out',
-      category:'Tips',
-      image:'/Assets/blog1.png',
+      title:'Remote vs On-Site: What Suits You?',
+      category:'Insight',
+      image:'/Assets/i5.png',
    
     
     
     }, {
-      title:'How to Network Like a Pro in the ',
-      category:'Insights',
-      image:'/Assets/blog3.png',
+      title:'Freelancing 101: Get Your First Job',
+      category:'Tips',
+      image:'/Assets/i6.png',
    
     
     

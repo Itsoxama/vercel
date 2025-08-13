@@ -16,6 +16,9 @@ body {
    font-family: "DM Sans", sans-serif;
  
 }
+::-webkit-scrollbar {
+  display: none;
+}
 .clr{
         cursor: pointer;
     color: #3d69cb;
