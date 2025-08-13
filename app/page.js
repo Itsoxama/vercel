@@ -5,8 +5,9 @@ import Rslider from './components/Rslider';
 import Blogcard from './components/Blogcard';
 import { getJobsByFilters, getSearchQueries } from '../lib/api';
 import JobSlider from './components/Jobslider';
+import { cookies } from 'next/headers';
 
-export default async function Page() {
+export default async function Page({searchParams: searchParamsPromise}) {
 const imageList = [
     '/Assets/slide1.webp',
    '/Assets/slide2.webp',
@@ -44,20 +45,32 @@ const imageList = [
   
   ]
 
-    // ✅ Parse filters from searchPara ms (SSR safe)
-    const filters = {};
-   
-      console.log("Parsed Filters:", filters);
-    const jobsData = await getJobsByFilters({
-      experienceLevel:"",
-      locationsearch:"",
-      sector:  [],
-      industry: [],
-      jobType:  [],
-      search:  "",
-      page:  1,
-      limit: 15
-    });
+ const searchParams = await searchParamsPromise; // Await the promise
+  const cookieStore = cookies();
+  const token = cookieStore.get("token")?.value||"";
+
+  console.log("Token from SSR:", token)
+
+
+  // ✅ Parse filters from searchParams (SSR safe)
+  const filters = {};
+  for (const key in searchParams) {
+    const value = searchParams[key];
+    filters[key] = Array.isArray(value) ? value : [value];
+  }
+    console.log("Parsed Filters:", filters);
+  const jobsData = await getJobsByFilters({
+token:token,
+       experienceLevel: filters.experience?.[0] || "",
+       locationsearch:filters.location?.[0] || "",
+    sector: filters.sector || [],
+    industry: filters.industry || [],
+    jobType: filters.jobtype || [],
+    search: filters.search?.[0] || "",
+          search: filters.search?.[0] || "",
+    page: filters.page?.[0] ? parseInt(filters.page[0]) : 1,
+    limit: 15
+  });
   
      console.log("API Response:", jobsData);
   

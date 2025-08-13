@@ -8,7 +8,8 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import './Slider.css'
 import Postcard from './Postcard'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { savejob } from '../../lib/api'
 export default function JobSlider({ jobs = [] }) {
 
     const [jobopen, setjobopen] = useState(0)
@@ -18,6 +19,40 @@ export default function JobSlider({ jobs = [] }) {
       setselectedjobid(val)
       setjobopen(1)
     
+    }
+     function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+      }
+    
+    async function save(job) {
+      const token = getCookie('token'); // <--- Get token from cookies
+      console.log('Token:', token);
+    
+      if (!token) {
+        window.location = 'https://cfs.infibrain.com/Employee/Login'
+        return;
+      }
+    
+      try {
+        const data = await savejob(token, job.id);
+        console.log('API Response:', data);
+    
+        if (data?.error || data?.success === false) {
+          // Show an alert or toast
+          
+             window.location = 'https://cfs.infibrain.com/Employee/Login'
+    
+          return;
+        }
+    
+        // If successful
+        window.location.reload();
+      } catch (error) {
+        console.error('Error saving job:', error);
+        window.location = 'https://cfs.infibrain.com/Employee/Login'
+      }
     }
     function getDaysAgo(dateString) {
   const postedDate = new Date(dateString);
@@ -41,8 +76,52 @@ export default function JobSlider({ jobs = [] }) {
   }
 }
 
+const [sjob, setsjob] = useState(null)
+const [showshare, setshowshare] = useState(0)
+function show(jobid){
+  setshowshare(1)
+  setsjob(jobid)
+}
+  const sidemenuRef = useRef();
+  const handleclose = (e) => {
+    if (!sidemenuRef.current.contains(e.target)) {
+      setshowshare(0)
+    }
+  };
+
   return (<>
   
+   {showshare===1&&
+    
+<div className="sharewindow" onClick={handleclose}>
+  <div className="subshare" ref={sidemenuRef}>
+    <p>Copy the Job Link</p>
+    <div className="det">
+      <div className="link">
+        {`https://cfs.infibrain.com/JobDetail/${sjob}`}
+      </div>
+      <button
+        onClick={() => {
+          navigator.clipboard
+            .writeText(`https://cfs.infibrain.com/JobDetail/${sjob}`)
+            .then(() => {
+              alert("Job link copied to clipboard!");
+              setshowshare(0)
+            })
+            .catch((err) => {
+              console.error("Failed to copy: ", err);
+            });
+        }}
+      >
+        Copy
+      </button>
+    </div>
+  </div>
+</div>
+
+    
+    
+    }
        {jobopen===1&&
       <Postcard jobid={selectedjobid} setjobopen={setjobopen}  />}
    <Swiper
@@ -76,6 +155,9 @@ export default function JobSlider({ jobs = [] }) {
 
                  <p>     <img src="/Assets/loc.png" alt=""/> {job.companyState} , {job.companyCity}</p>            </div>
 
+   <div className="topend">
+
+  
 {job.applicationstatus&&job.applicationstatus.length>0?
        <div className="status">
           {job.applicationstatus[0].applicationStatus}
@@ -84,6 +166,25 @@ export default function JobSlider({ jobs = [] }) {
 
 
 }
+
+     {job.issave===true?
+       <div className="save" >
+                    <img src="/Assets/save.png" alt=""/>
+                 </div>
+    :
+    
+      <div className="save" onClick={(e)=>{
+        e.stopPropagation();
+       
+       save(job)}}>
+                    <img src="/Assets/gsave.svg" alt=""/>
+                 </div>
+    
+    }
+     
+        
+     </div>
+    
     
 
    </div>
@@ -131,7 +232,10 @@ export default function JobSlider({ jobs = [] }) {
          <p dangerouslySetInnerHTML={{ __html: job.description.substring(0, 300) }} />
             <div className="job-share">
                 <p>{getDaysAgo(job.postedDate)} </p>
-                <button><img src="/Assets/share.png" alt=""/></button>
+                <button onClick={e=>{
+e.stopPropagation();
+show(job.id)                  
+                }} ><img src="/Assets/share.png" alt=""/></button>
             </div>
 
    </div>

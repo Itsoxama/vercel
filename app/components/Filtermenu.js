@@ -28,10 +28,40 @@ export default function Filtermenu({ filters, setshowmenu }) {
 
     }
   }, [])
+function deleteLocation(dellocation) {
+  let dellocations = JSON.parse(localStorage.getItem("locations")) || [];
 
+  // Remove the dellocation
+  dellocations = dellocations.filter(item => item !== dellocation);
+  localStorage.setItem("locations", JSON.stringify(dellocations));
+  setLocations(JSON.parse(localStorage.getItem("locations")) || [])
+}
 
+  const [locations, setLocations] = useState(() => {
+    // Load from localStorage when component mounts
+    return JSON.parse(localStorage.getItem("locations")) || [];
+  });
+
+  
   function redirectto() {
+
+ let locations = JSON.parse(localStorage.getItem("locations")) || [];
+
+  // Avoid duplicates
+  if (!locations.includes(location)) {
+    locations.push(location);
+    localStorage.setItem("locations", JSON.stringify(locations));
+  }
+
+
+
+
+
+
+
+    
     const params = new URLSearchParams();
+
 
 
 
@@ -194,6 +224,69 @@ export default function Filtermenu({ filters, setshowmenu }) {
 
     
   }
+  const [isActive, setIsActive] = useState(false);
+  
+  const renderSuggestions = () => {
+  return (
+    (isActive&&location.length===0)?
+    locations?.map((val, index) => (
+      <div
+        key={val}
+        className="query2"
+        onClick={() => setlocation(val)}
+        style={{
+          
+          cursor: 'pointer',
+        }}
+      >
+        {val}
+
+<div className="closer">
+          <img onClick={(e) => {
+            e.stopPropagation();
+            deleteLocation(val)}} src="/Assets/clo4.png" alt="" />
+
+</div>
+      </div>
+    ))
+    : (isActive&&location.length>0)?
+     locations?.map((val, index) => (
+      val.toLowerCase().search(location.toLowerCase())>=0&&
+      <div
+        key={val}
+        className="query2"
+        onClick={() => setlocation(val)}
+        style={{
+          
+          cursor: 'pointer',
+        }}
+      >
+        {val}
+
+<div className="closer">
+          <img onClick={e => {
+            e.stopPropagation();
+            deleteLocation(val)}} src="/Assets/clo4.png" alt="" />
+
+</div>
+      </div>
+    )):
+    <></>
+  );
+};
+  const containerRef = useRef(null);
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (containerRef.current && !containerRef.current.contains(event.target)) {
+        setIsActive(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="filtermenu" onClick={handleFilterClick}>
@@ -201,9 +294,13 @@ export default function Filtermenu({ filters, setshowmenu }) {
         <img onClick={e => setshowmenu(0)} src="/Assets/close.svg" alt="" />
         <div className="filtercard">
           <h4>Location</h4>
-          <div className="filter-input">
+          <div className="filter-input"  ref={containerRef}>
             <img src="/Assets/search.svg" alt="" />
-            <input type="text" value={location} onChange={e => setlocation(e.target.value)} placeholder='Charlotte NC' />
+            <input type="text" value={location} onChange={e => setlocation(e.target.value)}
+             onFocus={() => setIsActive(true)}
+           
+            placeholder='Charlotte NC' />
+                {isActive&& <div className="ddown2">{renderSuggestions()}</div>}
           </div>
           <div className="break">
 
