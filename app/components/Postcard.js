@@ -56,12 +56,13 @@ function formatDate(dateString) {
     fetchJob();
   }, [jobid]); // Fetch data only when jobid changes
 
-
-  const formatSalary = (amount) => {
-  if (amount >= 1_000_000) return `${(amount / 1_000_000).toFixed(1)}M$`;
-  if (amount >= 1_000) return `${(amount / 1_000).toFixed(0)}k$`;
+const formatSalary = (amount) => {
+  const format = (num) => parseFloat(num.toFixed(1)).toString();
+  if (amount >= 1_000_000) return `${format(amount / 1_000_000)}M$`;
+  if (amount >= 1_000) return `${format(amount / 1_000)}k$`;
   return `${amount}$`;
 };
+
   const sidemenuRef = useRef();
   const handleFilterClick = (e) => {
     if (!sidemenuRef.current.contains(e.target)) {
