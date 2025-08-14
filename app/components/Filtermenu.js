@@ -3,17 +3,20 @@ import './Filtermenu.css'
 import '../globals.css'
 import data from './data.json'
 import { useEffect, useRef, useState } from 'react';
-export default function Filtermenu({ filters, setshowmenu }) {
+export default function Filtermenu({ locationData, filters, setshowmenu }) {
   console.log(filters)
 
 
   const [filterdata, setfilterdata] = useState(filters.data)
+
   const [industrydata, setindustrydata] = useState([])
   const [jobtypedata, setjobtypedata] = useState(filters.data.jobTypes)
+  const [workmodes, setworkmodes] = useState(filters.data.workModes)
   const [expOpen, setexpOpen] = useState(0)
   const [secOpen, setsecOpen] = useState(0)
   const [indOpen, setindOpen] = useState(0)
   const [jobOpen, setjobOpen] = useState(0)
+  const [workOpen, setworkOpen] = useState(0)
   const [expyears, setexpyears] = useState(0)
   const [location, setlocation] = useState("")
 
@@ -28,30 +31,12 @@ export default function Filtermenu({ filters, setshowmenu }) {
 
     }
   }, [])
-function deleteLocation(dellocation) {
-  let dellocations = JSON.parse(localStorage.getItem("locations")) || [];
 
-  // Remove the dellocation
-  dellocations = dellocations.filter(item => item !== dellocation);
-  localStorage.setItem("locations", JSON.stringify(dellocations));
-  setLocations(JSON.parse(localStorage.getItem("locations")) || [])
-}
-
-  const [locations, setLocations] = useState(() => {
-    // Load from localStorage when component mounts
-    return JSON.parse(localStorage.getItem("locations")) || [];
-  });
+  const [locations, setLocations] = useState(locationData.data.locations);
 
   
   function redirectto() {
 
- let locations = JSON.parse(localStorage.getItem("locations")) || [];
-
-  // Avoid duplicates
-  if (!locations.includes(location)) {
-    locations.push(location);
-    localStorage.setItem("locations", JSON.stringify(locations));
-  }
 
 
 
@@ -106,6 +91,17 @@ function deleteLocation(dellocation) {
       });
     }
 
+    if (workmodes?.length) {
+      workmodes.forEach((item) => {
+
+        if (item.checked && item.checked === true) {
+          params.append("workMode", item.name)
+
+        }
+
+      });
+    }
+
     window.location = `/jobs?${params.toString()}`
 
 
@@ -141,6 +137,36 @@ function deleteLocation(dellocation) {
 
     }
     console.log(jobtypedata)
+  }
+    function addwtoSearch(val, index) {
+    if (val.checked && val.checked === true) {
+      var tr = [...workmodes]
+      setworkmodes([])
+      tr[index] =
+      {
+        ...tr[index],
+        checked: false
+      }
+      setworkmodes(tr)
+
+
+
+    }
+    else {
+
+      var tr = [...workmodes]
+      setworkmodes([])
+      tr[index] =
+      {
+        ...tr[index],
+        checked: true
+      }
+      setworkmodes(tr)
+
+
+
+    }
+    console.log(workmodes)
   }
 
   function addtoSearchInd(val, index) {
@@ -224,56 +250,43 @@ function deleteLocation(dellocation) {
 
     
   }
+  function setlocationss(val){
+ setlocation(val)
+ setIsActive(false);
+ console.log(isActive)
+
+  }
   const [isActive, setIsActive] = useState(false);
   
-  const renderSuggestions = () => {
+const renderSuggestions = () => {
   return (
-    (isActive&&location.length===0)?
-    locations?.map((val, index) => (
-      <div
-        key={val}
-        className="query2"
-        onClick={() => setlocation(val)}
-        style={{
-          
-          cursor: 'pointer',
-        }}
-      >
-        {val}
-
-<div className="closer">
-          <img onClick={(e) => {
-            e.stopPropagation();
-            deleteLocation(val)}} src="/Assets/clo4.png" alt="" />
-
-</div>
-      </div>
-    ))
-    : (isActive&&location.length>0)?
-     locations?.map((val, index) => (
-      val.toLowerCase().search(location.toLowerCase())>=0&&
-      <div
-        key={val}
-        className="query2"
-        onClick={() => setlocation(val)}
-        style={{
-          
-          cursor: 'pointer',
-        }}
-      >
-        {val}
-
-<div className="closer">
-          <img onClick={e => {
-            e.stopPropagation();
-            deleteLocation(val)}} src="/Assets/clo4.png" alt="" />
-
-</div>
-      </div>
-    )):
-    <></>
+    (isActive && location.length === 0) ?
+      locations?.map((val) => (
+        <div
+          key={val}
+          className="query2"
+          onClick={() => setlocationss(val)}
+          style={{ cursor: 'pointer' }}
+        >
+          {val}
+        </div>
+      ))
+    : (isActive && location.length > 0) ?
+      locations?.map((val) => (
+        val.toLowerCase().includes(location.toLowerCase()) &&
+        <div
+          key={val}
+          className="query2"
+          onClick={() => setlocationss(val)} // ✅ now closes
+          style={{ cursor: 'pointer' }}
+        >
+          {val}
+        </div>
+      ))
+    : null
   );
 };
+
   const containerRef = useRef(null);
   useEffect(() => {
     function handleClickOutside(event) {
@@ -300,7 +313,7 @@ function deleteLocation(dellocation) {
              onFocus={() => setIsActive(true)}
            
             placeholder='Charlotte NC' />
-                {isActive&&locations.length>0&& <div className="ddown2">{renderSuggestions()}</div>}
+                {location.length>1&&isActive&&locations.length>0&& <div className="ddown2">{renderSuggestions()}</div>}
           </div>
           <div className="break">
 
@@ -420,6 +433,31 @@ function deleteLocation(dellocation) {
 
                     :
                 <img src="/Assets/chk1.png" alt="" className='chkbox' onClick={e => addtoSearch(val, index)} />
+
+
+                  }
+
+                  <p>{val.name}</p>
+                </div>
+
+              ))}
+
+            </>}
+
+
+
+          <h4 onClick={e => jobOpen === 0 ? setworkOpen(1) : setworkOpen(0)}> Work Mode  <img src="/Assets/up.svg" alt="" /> </h4>
+          {workOpen === 1 &&
+            <>
+
+              {workmodes.map((val, index) => (
+                <div className="filter-option">
+ {
+                    val.checked && val.checked === true ?
+                <img src="/Assets/chk2.png" className='chkbox' alt="" onClick={e => addwtoSearch(val, index)} />
+
+                    :
+                <img src="/Assets/chk1.png" alt="" className='chkbox' onClick={e => addwtoSearch(val, index)} />
 
 
                   }

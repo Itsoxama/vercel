@@ -23,10 +23,12 @@ export default async function  Page({searchParams: searchParamsPromise}) {
   }
     console.log("Parsed Filters:", filters);
   const jobsData = await getJobsByFilters({
+       workMode: filters.workMode || [],
 token:token,
        experienceLevel: filters.experience?.[0] || "",
        locationsearch:filters.location?.[0] || "",
     sector: filters.sector || [],
+
     industry: filters.industry || [],
     jobType: filters.jobtype || [],
     search: filters.search?.[0] || "",

@@ -5,7 +5,7 @@ import Filtermenu from './Filtermenu';
 import { useEffect, useRef, useState } from 'react';
 import Mobilemenu from './MobileMenu';
 
-export default function Header({ filters, queries }) {
+export default function Header({locationData, filters, queries }) {
   const [headerqueries, setheaderqueries] = useState(queries.queries);
   const [query, setquery] = useState('');
   const [showmenu, setshowmenu] = useState(0);
@@ -115,7 +115,7 @@ useEffect(() => {
     <div className="pheader">
       <div className="header">
         {showmenu === 1 && (
-          <Filtermenu filters={filters} setshowmenu={setshowmenu} />
+          <Filtermenu locationData={locationData} filters={filters} setshowmenu={setshowmenu} />
         )}
         {showmobmenu === 1 && (
           <Mobilemenu setshomobwmenu={setshowmobmenu} />
