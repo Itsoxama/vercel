@@ -153,7 +153,7 @@ function show(jobid){
             <div className="job-info">
                <h4>{job.title}</h4>
 
-                                <p>     <img src="/Assets/loc.png" alt=""/>{job.jobLocationState} , {job.jobLocationCity}</p>
+                                <p>     <img src="/Assets/loc.png" alt=""/>{job.jobLocationCity}, {job.jobLocationState}</p>
           </div>
 
    <div className="topend">
